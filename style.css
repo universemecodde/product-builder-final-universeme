@@ -1,1 +1,126 @@
-/* Add styles here */
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --background-color: #f0f2f5;
+    --card-background-color: #ffffff;
+    --text-color: #333;
+    --light-text-color: #666;
+    --white-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.card {
+    width: 90%;
+    max-width: 400px;
+    background-color: var(--card-background-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    padding: 30px 20px;
+    background-color: var(--card-background-color);
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.card-header p {
+    margin: 10px 0 0;
+    color: var(--light-text-color);
+    font-size: 16px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    perspective: 1000px;
+}
+
+.number-placeholder,
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+
+.number-placeholder {
+    background-color: #eee;
+}
+
+.number {
+    color: var(--white-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transform-style: preserve-3d;
+    animation: flipIn 0.8s forwards;
+}
+
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg) scale(0.8);
+    }
+    to {
+        transform: rotateY(0deg) scale(1);
+    }
+}
+
+.card-footer {
+    padding: 30px 20px;
+}
+
+#generate-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+    transition: all 0.3s ease;
+}
+
+#generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 117, 252, 0.5);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+}
