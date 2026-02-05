@@ -67,9 +67,11 @@ body {
     background-color: var(--card-background-color);
     border-radius: 20px;
     box-shadow: 0 10px 30px var(--shadow-color);
-    overflow: hidden;
+    /* overflow: hidden; Removed as it might interfere with flex expansion */
     text-align: center;
     transition: transform 0.3s ease;
+    display: flex; /* Added for flex layout */
+    flex-direction: column; /* Added for vertical stacking */
 }
 
 .card:hover {
@@ -96,6 +98,10 @@ body {
 
 .card-body {
     padding: 20px;
+    flex-grow: 1; /* Allow card-body to grow and take available space */
+    display: flex; /* Added for centering lotto numbers */
+    justify-content: center; /* Added for centering lotto numbers */
+    align-items: center; /* Added for centering lotto numbers */
 }
 
 .lotto-numbers {
@@ -104,6 +110,8 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     perspective: 1000px;
+    min-height: 60px; /* Ensure consistent height */
+    align-items: center; /* Center numbers vertically within their container */
 }
 
 .number-placeholder,
