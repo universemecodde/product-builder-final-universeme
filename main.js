@@ -1,37 +1,11 @@
 const generateBtn = document.getElementById('generate-btn');
 const lottoNumbersContainer = document.querySelector('.lotto-numbers');
 const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Function to set the theme
-function setTheme(mode) {
-    if (mode === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggle.textContent = '☀️'; // Sun icon for dark mode
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.classList.remove('dark-mode');
-        themeToggle.textContent = '🌙'; // Moon icon for light mode
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Load saved theme from localStorage
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    setTheme(savedTheme);
-} else {
-    // Default to light mode if no theme is saved
-    setTheme('light');
-}
 
 // Event listener for theme toggle button
 themeToggle.addEventListener('click', () => {
-    if (body.classList.contains('dark-mode')) {
-        setTheme('light');
-    } else {
-        setTheme('dark');
-    }
+    const isDarkMode = document.documentElement.classList.toggle('dark-mode');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 });
 
 generateBtn.addEventListener('click', () => {
